@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">User name</string>
+    <string name="nav_header_subtitle">User email</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="addSlovo">Добавить слово</string>
+    <string name="Rand_Slovo">Случайное слово</string>
+    <string name="Go_to_Slovo">Словарь</string>
+    <string name="Go_to_Slovo_user">Словарь пользователя</string>
+    <string name="in_eng">Введите ENG</string>
+    <string name="in_rus">Введите RUS</string>
+</resources>
