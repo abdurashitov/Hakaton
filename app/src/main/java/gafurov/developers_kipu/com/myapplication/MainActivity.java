@@ -83,17 +83,20 @@ public class MainActivity extends AppCompatActivity
         // Создадим новый фрагмент
         Fragment fragment = null;
         Class fragmentClass = null;
-
+        FragmentManager fragmentManager = getSupportFragmentManager();
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            Intent intent = new Intent(MainActivity.this, Vocabulary_user.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_game) {
+            //fragmentClass = FirstFragment.class;
+        } else if (id == R.id.nav_vocabularu) {
             Intent intent = new Intent(MainActivity.this, Vocabulary.class);
             startActivity(intent);
-        }/* else if (id == R.id.nav_manage){
+            //fragmentClass = SecondFragment.class;
+        } else if (id == R.id.nav_vocabularu_user) {
+            Intent intent = new Intent(MainActivity.this, Vocabulary_user.class);
+            startActivity(intent);
+        } /*else if (id == R.id.nav_setting){
             fragmentClass = ThirdFragment.class;
         }*/
 
@@ -103,9 +106,9 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-        // Вставляем фрагмент, заменяя текущий фрагмент
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        //Вставляем фрагмент, заменяя текущий фрагмент
         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
+
         // Выделяем выбранный пункт меню в шторке
         item.setChecked(true);
         // Выводим выбранный пункт в заголовке
