@@ -42,6 +42,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UserActivity" />
         <activity android:name=".result_game"></activity>
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="false"></service>
     </application>
+
 
 </manifest>
