@@ -1,22 +1,25 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scroll"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:visibility="visible"
+    tools:openDrawer="start">
+
+    <include
+        layout="@layout/app_bar_vocabulary"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
 
-        <EditText
-            android:id="@+id/userFilter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Поиск" />
-
-        <ListView
-            android:id="@+id/userList"
-            android:layout_width="match_parent"
-            android:layout_height="467dp"></ListView>
-
-    </LinearLayout>
-</ScrollView>
+</android.support.v4.widget.DrawerLayout>

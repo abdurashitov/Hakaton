@@ -5,20 +5,25 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_main"
+            android:icon="@drawable/ic_main"
+            android:title="Маин" />
+        <item
             android:id="@+id/nav_game"
-            android:icon="@drawable/puzle"
+            android:icon="@mipmap/puzle"
             android:title="Игра" />
         <item
-            android:id="@+id/nav_vocabularu"
-            android:icon="@drawable/word"
+            android:id="@+id/nav_vocabulary"
+            android:icon="@mipmap/word"
             android:title="Словарь" />
         <item
-            android:id="@+id/nav_vocabularu_user"
-            android:icon="@drawable/word"
+            android:id="@+id/nav_vocabulary_user"
+            android:icon="@drawable/ic_vocabulary_user"
             android:title="Словарь Пользователя" />
         <item
             android:id="@+id/nav_setting"
-            android:icon="@drawable/tool"
+            android:icon="@mipmap/tool"
             android:title="Настройки" />
     </group>
+
 </menu>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="gafurov.developers_kipu.com.myapplication">
+    package="hakaton.hakaton_brench1">
 
     <application
         android:allowBackup="true"
@@ -12,6 +12,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +20,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Vocabulary" />
-        <activity android:name=".Vocabulary_user" />
-        <activity android:name=".UserActivity"></activity>
+        <activity
+            android:name=".Vocabulary"
+            android:label="@string/title_activity_vocabulary"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Game"
+            android:label="@string/title_activity_game"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Setting"
+            android:label="@string/title_activity_setting"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Vocabulary_user"
+            android:label="@string/title_activity_vocabulary_user"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UserActivity" />
+        <activity android:name=".result_game"></activity>
     </application>
 
 </manifest>
