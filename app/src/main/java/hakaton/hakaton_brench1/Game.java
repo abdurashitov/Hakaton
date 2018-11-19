@@ -2,9 +2,9 @@ package hakaton.hakaton_brench1;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,8 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
+
 
 public class Game extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,9 +43,7 @@ public class Game extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        /*********************************************************************************/
-        //onResume();
-        /****************************************************************************************/
+        /************************************************************************************************/
         button[0] = (Button)findViewById(R.id.button1);
         button[1] = (Button)findViewById(R.id.button2);
         button[2] = (Button)findViewById(R.id.button3);
@@ -52,6 +52,7 @@ public class Game extends AppCompatActivity
         sqlHelper = new DatabaseHelper(getApplicationContext());
         // создаем базу данных
         sqlHelper.create_db();
+        word();
     }
 
     @Override
@@ -97,67 +98,62 @@ public class Game extends AppCompatActivity
     Cursor userCursor;
     Cursor userCursor1;
     int count =0;
+    int check;
 
     //@Override
-    public void onResume()
+    public void word()
     {
-        super. onResume();
-        try {
-            db = sqlHelper.open();
-            //String[] array_eng = new String[]{DatabaseHelper.COLUMN_ENG};
-            String[] array_eng=new String[55];
-            int y = 0;
-            userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE, null);
-           while (userCursor.moveToNext()) {
-                String uname = userCursor.getString(userCursor.getColumnIndex("eng"));// тут меняем какую колонку берем
-                array_eng[y] = uname;
-                y++;
-            }
-           // String[] array_rus = new String[]{DatabaseHelper.COLUMN_RUS};
-            String[] array_rus = new String[55];
-            int z = 0;
-            userCursor1 = db.rawQuery("select * from " + DatabaseHelper.TABLE, null);
-            while (userCursor1.moveToNext()) {
-                String uname = userCursor1.getString(userCursor1.getColumnIndex("rus"));// тут меняем какую колонку берем
-                array_rus[z] = uname;
-                z++;
-            }
-            Random random = new Random();
-            int index = random.nextInt(55) + 1;
-            String word_eng = array_eng[index];
-            String word_rus = array_rus[index];
-            for (int i = 0; i <array_eng.length ; i++) {
-                System.out.println(array_eng[i]);
-            }
-            for (int i = 0; i <array_eng.length ; i++) {
-                System.out.println(array_rus[i]);
-            }
-
-            System.out.println(word_eng);
-            text.setText(word_eng);
-            int btn_index = random.nextInt(4) + 1;
-            for (int i = 0; i < 4; i++) {
-                button[i].setText(array_rus[random.nextInt(55) + 1]);
-                /*button1.setText(array_rus[random.nextInt(55) + 1]);
-                button2.setText(array_rus[random.nextInt(55) + 1]);
-                button3.setText(array_rus[random.nextInt(55) + 1]);
-                button4.setText(array_rus[random.nextInt(55) + 1]);*/
-            }
-            button[btn_index].setText("" + word_rus);
-
-
+        db = sqlHelper.open();
+        //String[] array_eng = new String[]{DatabaseHelper.COLUMN_ENG};
+        String[] array_eng=new String[55];
+        int y = 0;
+        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE, null);
+        while (userCursor.moveToNext()) {
+            String uname = userCursor.getString(userCursor.getColumnIndex("eng"));// тут меняем какую колонку берем
+            array_eng[y] = uname;
+            y++;
         }
-        catch (SQLException ex){}
+        // String[] array_rus = new String[]{DatabaseHelper.COLUMN_RUS};
+        String[] array_rus = new String[55];
+        int z = 0;
+        userCursor1 = db.rawQuery("select * from " + DatabaseHelper.TABLE, null);
+        while (userCursor1.moveToNext()) {
+            String uname = userCursor1.getString(userCursor1.getColumnIndex("rus"));// тут меняем какую колонку берем
+            array_rus[z] = uname;
+            z++;
+        }
+        Random random = new Random();
+        int index = random.nextInt(54) + 1;
+        String word_eng = array_eng[index];
+        String word_rus = array_rus[index];
+        text.setText(word_eng);
+        int btn_index = random.nextInt(3) + 1;
+        for (int i = 0; i < 4; i++) {
+            button[i].setText(array_rus[random.nextInt(54) + 1]);
+        }
+        check=btn_index;
+        button[btn_index].setText(word_rus);
     }
 
-    public void Check (String word){
-        Intent intent1 = new Intent(this, result_game.class);
-        if (word.equals(text.getText())){
-            count++;
 
-        }
-        if (count==15)
-            startActivity(intent1);
+    public void Check (int pos){
+        if(check==pos){
+            Toast toast = Toast.makeText(getApplicationContext(),"Правильно!", Toast.LENGTH_SHORT);
+            toast.show();}
+        else{
+            Toast toast = Toast.makeText(getApplicationContext(),"Неправильно!", Toast.LENGTH_SHORT);
+            toast.show();}
+        button[pos].setBackgroundResource(R.color.wrong);
+        button[check].setBackgroundResource(R.color.right);
+        Intent intent1 = new Intent(this, result_game.class);
+        button[pos].setBackgroundResource(R.color.base);
+        button[check].setBackgroundResource(R.color.base);
+        count++;
+        //if(count==15)
+        //     startActivity(intent1);
+
+        word();
+
     }
 
 
@@ -172,16 +168,16 @@ public class Game extends AppCompatActivity
     public void onClick(View v){
         switch (v.getId()) {
             case R.id.button1:
-                //text.setText("Первая");
+                Check(0);
                 break;
             case R.id.button2:
-                //text.setText("Вторая");
+                Check(1);
                 break;
             case R.id.button3:
-                //text.setText("Третья");
+                Check(2);
                 break;
             case R.id.button4:
-                //text.setText("Четвертая");
+                Check(3);
                 break;
         }
     }

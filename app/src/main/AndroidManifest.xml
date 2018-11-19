@@ -12,6 +12,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,25 +24,31 @@
         <activity
             android:name=".Vocabulary"
             android:label="@string/title_activity_vocabulary"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".Game"
             android:label="@string/title_activity_game"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Setting"
             android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Vocabulary_user"
             android:label="@string/title_activity_vocabulary_user"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".UserActivity" />
-        <activity android:name=".result_game"></activity>
+        <activity android:name=".UserActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".result_game"
+            android:screenOrientation="portrait"></activity>
 
         <service
             android:name=".MyService"
