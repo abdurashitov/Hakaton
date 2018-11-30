@@ -1,19 +1,16 @@
 <resources>
-    <string name="app_name">Hakaton_brench1</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Hakaton applikation</string>
-    <string name="nav_header_subtitle">Developers KIPU</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_vocabulary">Словарь</string>
-    <string name="title_activity_game">Игра</string>
-    <string name="title_activity_setting">Настройки</string>
-    <string name="title_activity_vocabulary_user">Словарь пользователя</string>
-    <string name="addSlovo">Добавить слово</string>
-    <string name="Rand_Slovo">Случайное слово</string>
-    <string name="Go_to_Slovo">Словарь</string>
-    <string name="Go_to_Slovo_user">Словарь пользователя</string>
-    <string name="in_eng">Введите ENG</string>
-    <string name="in_rus">Введите RUS</string>
+    <string name="app_name">Учим Английский</string>
+    <string name="title_home">Словарь</string>
+    <string name="title_dashboard">Игра</string>
+    <string name="title_setting">Настройки</string>
+    <string-array name="timelist">
+        <item>10 мин</item>
+        <item>20 мин</item>
+        <item>30 мин</item>
+        <item>45 мин</item>
+        <item>60 мин</item>
+    </string-array>
+    <string name="set">10</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#00574b</color>
     <color name="colorAccent">#d81b60</color>
+    <color name="bar">#000000</color>
+    <color name="back">#61ffffff</color>
+    <color name="colorText">#caffffff</color>
     <color name="wrong">#FFD81B1E</color>
     <color name="right">#FF168500</color>
-    <color name="base">#d3cece</color>
+    <color name="colorWord">#df1114a4</color>
+    <color name="black">#000000</color>
 </resources>
